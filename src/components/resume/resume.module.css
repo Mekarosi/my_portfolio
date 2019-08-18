@@ -1,0 +1,37 @@
+.container{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #1A535C;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+ul{
+    list-style-type: none;
+}
+
+nav{
+    background-color: #4ECDC4;
+    padding-top: 20px;
+}
+
+li{
+    font-size: 20px;
+}
+
+img{
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    padding-bottom: 30px;
+}
+
+li strong{
+    font-size: 25px;
+}
+
+h1{
+    font-size: 40px;
+}
