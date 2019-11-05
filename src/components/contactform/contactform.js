@@ -19,7 +19,6 @@ export default class form extends Component {
 
        };
 
-
    }
 
    handleChange = (event) => {
@@ -31,19 +30,19 @@ export default class form extends Component {
   }
 
   handleSubmit = (event) =>{
-    event.preventDefault()
+    //event.preventDefault()
      console.log(this.state)
-     axios.post('http://localhost:8080/contactform',this.state)
-     .then(function (response) {
-       const data = response.data
-       if (data.status) {
+     axios.post('http://localhost:5000/contactform',this.state)
+     .then( (response) => {
+       //const data = response.data
+       if (response.data.status) {
          alert('Thank you for reaching out')
        }
        else{
-         alert('wrong details')
+         alert('Wrong details')
        }
      })
-     .catch(function (error) {
+     .catch( (error) => {
        console.log(error);
      });
    }
@@ -58,7 +57,7 @@ export default class form extends Component {
                  
                      <h1><strong>Contact Me</strong></h1>
 
-                      {this.state.messagesent && (
+                     {this.state.messagesent && (
            <Alert variant = "success">
              <span>message successfully delivered</span>
            </Alert> )}
@@ -70,7 +69,10 @@ export default class form extends Component {
 
 
                   
-            <Form onSubmit={this.handleSubmit}>
+            <Form onSubmit= {(e) => {
+           e.preventDefault()
+           this.handleSubmit()
+         }}>
                 <Form.Group controlId="fullName">
                     <Form.Label>FullName</Form.Label>
                     <Form.Control  type="text" onChange={this.handleChange} placeholder="fullName" />
@@ -81,19 +83,19 @@ export default class form extends Component {
                     <Form.Control type="text"  onChange={this.handleChange} placeholder="Enter email" />
                 </Form.Group>
 
-                <Form.Group controlId="contactAddress">
+                <Form.Group controlId="address">
                     <Form.Label>Contact Address</Form.Label>
                     <Form.Control  type="text" onChange={this.handleChange} placeholder="Contact Address" />
                 </Form.Group>
 
-                <Form.Group controlId="contactPhoneNumber">
+                <Form.Group controlId="phoneNumber">
                     <Form.Label>Contact Phone Number</Form.Label>
-                    <Form.Control type="number"  onChange={this.handleChange}placeholder="Contact Phone Number" />
+                    <Form.Control type="number"  onChange={this.handleChange} placeholder="Contact Phone Number" />
                 </Form.Group>
 
                 <Form.Group controlId="message">
-                    <Form.Label>Message</Form.Label>
-                    <Form.Control as="textarea" rows="3" />
+                    <Form.Label>Send Message</Form.Label>
+                    <Form.Control as="textarea" rows="3" onChange={this.handleChange}/>
                 </Form.Group>
 
                  <Button variant="primary" type="submit">
