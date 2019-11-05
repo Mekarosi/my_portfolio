@@ -33,7 +33,7 @@ export default class resume extends Component {
             <br />
             <li>
               <strong>Description:</strong> I am a software developer, am
-              proficency in Javascript and Ruby on Rails programming languages.
+              proficent in Javascript and Ruby on Rails programming languages.
               Node.js and react.js and express.js are the Javascript Library
               that I am proficency in.{' '}
             </li>
